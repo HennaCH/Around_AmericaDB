@@ -1,8 +1,11 @@
 package com.example.around_americadb.entity;
 
+import com.example.around_americadb.response.AttractionResponse;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Entity
@@ -16,9 +19,15 @@ public class Country {
     private String countryName;
     @Column(name = "capital")
     private String capital;
-    @Column(name = "attraction_name")
+    @Column(name = "attraction")
     private String attraction;
     @Column(name = "food")
     private String food;
 
+    @OneToMany()
+    private List<Attraction> attractions;
+
+    /*@OneToMany(mappedBy = "country")
+    private List<Food> foods;
+*/
 }

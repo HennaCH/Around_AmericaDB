@@ -1,32 +1,49 @@
 package com.example.around_americadb.controller;
 
 
-import com.example.around_americadb.entity.Country;
-import com.example.around_americadb.response.CountryResponse;
-import com.example.around_americadb.service.CountryService;
+import com.example.around_americadb.entity.*;
+import com.example.around_americadb.request.*;
+import com.example.around_americadb.response.*;
+import com.example.around_americadb.service.*;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/countries/")
+@RequestMapping("/api/countries")
 public class CountryController {
     @Autowired
     CountryService countryService;
+    @Autowired
+    AttractionService attractionService;
 
     @GetMapping()
     public List<CountryResponse> getAllCountries(){
 
          List<Country> countries = countryService.getAllCountries();
 
-         List<CountryResponse> countryResponse = new ArrayList<>();
+         List<CountryResponse> countryResponses = new ArrayList<>();
          countries.forEach(country -> {
-             countryResponse.add(new CountryResponse(country));
+             countryResponses.add(new CountryResponse(country));
          });
-         return countryResponse;
+         return countryResponses;
     }
-}
+
+
+
+    @PostMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AttractionResponse insertAttraction(@Valid @RequestBody AttractionRequest attractionRequest) {
+
+        Attraction attraction = attractionService.insertAttraction(attractionRequest);
+        return new AttractionResponse(attraction);
+
+
+        }
+
+    }
