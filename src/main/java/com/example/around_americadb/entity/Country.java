@@ -22,13 +22,9 @@ public class Country {
     private String countryName;
     @Column(name = "capital")
     private String capital;
-    //@Column(name = "attraction")
-    //private String attraction;
-    //@Column(name = "food")
-    //private String food;
 
-   // @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-    //private List<Attraction> attractions;
+   @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    private List<Attraction> attractions;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     private Food food;

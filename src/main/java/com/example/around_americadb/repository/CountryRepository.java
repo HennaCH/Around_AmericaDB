@@ -10,5 +10,4 @@ import java.util.List;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Long> {
-    //public List<Country> findAllByFirstNameIgnoreCase(String countryName);
 }

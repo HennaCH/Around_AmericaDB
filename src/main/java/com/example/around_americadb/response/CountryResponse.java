@@ -20,7 +20,7 @@ public class CountryResponse {
         id = country.getId();
         countryName = country.getCountryName();
         capital = country.getCapital();
-        //attractionName = country.getAttractions();
+        attractionName = country.getAttractions();
         food = new FoodResponse(country.getFood());
     }
 }

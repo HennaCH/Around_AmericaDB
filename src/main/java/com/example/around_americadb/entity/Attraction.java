@@ -17,7 +17,6 @@ public class Attraction {
     @Id @GeneratedValue
     private long id;
 
-
     private String attractionName;
 
     private String description;

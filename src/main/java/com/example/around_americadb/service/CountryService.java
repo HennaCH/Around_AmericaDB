@@ -45,16 +45,4 @@ public class CountryService {
         return attractionRepository.save(attraction);
     }
 
-    //public List<Attraction> getAllAttractions(long id){
-      //  return (List<Attraction>) attractionRepository.findAllByCountryId(id);
-    //}
-
-    //public void deleteAllAttractions(long countryId){
-      //  if(countryRepository.existsById(countryId)){
-        //    attractionRepository.deleteAllByCountryId(countryId);
-        //}
-        //else{
-        //}
-    //}
-
 }
