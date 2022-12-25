@@ -13,18 +13,14 @@ public class CountryResponse {
     private long id;
     private String countryName;
     private String capital;
-    //private String attractionName;
     private List<Attraction> attractionName;
 
-    private String food;
-
-    //private AttractionResponse attraction;
+    private FoodResponse food;
     public CountryResponse(Country country){
         id = country.getId();
         countryName = country.getCountryName();
         capital = country.getCapital();
-        attractionName = country.getAttractions();
-        //attraction = new AttractionResponse(country.getAttractions());
-        //food = country.getFood;
+        //attractionName = country.getAttractions();
+        food = new FoodResponse(country.getFood());
     }
 }

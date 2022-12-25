@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "attractions")
@@ -14,22 +14,24 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Attraction {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
     private long id;
 
-    @Column(name = "attraction_name")
+
     private String attractionName;
 
-    @Column(name="description")
     private String description;
 
-    //@ManyToOne(cascade = CascadeType.PERSIST)
-    //@JoinColumn(name = "fk_country_id", nullable = false )
-    //private Country country;
+
+    @ManyToOne(optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name="country_id")
+    private Country country;
 
     public Attraction(AttractionRequest attractionRequest){
         attractionName = attractionRequest.getAttractionName();
         description = attractionRequest.getDescription();
+
     }
 
 }

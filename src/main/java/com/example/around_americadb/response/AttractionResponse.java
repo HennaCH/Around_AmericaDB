@@ -9,19 +9,19 @@ import lombok.Setter;
 @Setter
 public class AttractionResponse {
 
-    //private long id;
+    private long id;
 
     private String attractionName;
 
     private String description;
 
-    //private Country country;
+    private CountryResponse country;
 
     public AttractionResponse(Attraction attraction){
-        //id = attraction.getId();
+        id = attraction.getId();
         attractionName = attraction.getAttractionName();
         description =  attraction.getDescription();
-        //country = attraction.getCountry();
+        country = new CountryResponse(attraction.getCountry());
 
     }
 }

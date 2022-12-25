@@ -6,10 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttractionRequest {
-
+public class FoodRequest {
     @NotBlank
-    private String attractionName;
+    private String foodName;
 
     @NotBlank
     private String description;

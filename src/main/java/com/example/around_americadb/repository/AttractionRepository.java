@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface AttractionRepository extends CrudRepository<Attraction,Long> {
-    public List<Attraction>  findAllByAttractionNameIgnoreCase (String Name);
+    List<Attraction> findByCountryId(long country_id);
+    void deleteAllByCountryId(long country_id);
 }

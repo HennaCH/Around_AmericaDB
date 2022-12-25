@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Food {
-    @Id
+    @Id @GeneratedValue
     private long id;
 
     @Column(name = "food")
@@ -17,8 +17,6 @@ public class Food {
 
     @Column(name = "description")
     private String description;
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_country_id", nullable = false )
-    private Country country;
 }
+
+
